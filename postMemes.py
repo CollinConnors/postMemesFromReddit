@@ -21,7 +21,7 @@ def getStringFromFile(str,fileName):
     file.close()
     return False
 
-def post(groups=True,targetFile='targets.txt',credFile='credientials.txt'):
+def post(groups=True, message='#mathMemeMonday',targetFile='targets.txt',credFile='credientials.txt'):
 
     token=getStringFromFile('token',credFile)
 
@@ -51,7 +51,7 @@ def post(groups=True,targetFile='targets.txt',credFile='credientials.txt'):
             with open('meme'+str(i)+'.jpg','rb') as f:
                 image=client.images.from_file(f)
             atts.append(image)
-            message=squad.post(text='#mathMemeMonday',attachments=atts)
+            message=squad.post(text=message,attachments=atts)
             f.close()
             os.remove('meme'+str(i)+'.jpg')
             i+=1
