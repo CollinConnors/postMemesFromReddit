@@ -1,0 +1,6 @@
+clientID='yourRedditClientID'
+secretID='yourRedditsecretID'
+userAgent='yourRedditUserAgent'
+myUsername='yourRedditUserName'
+myPassword='yourRedditPassword'
+token='yourGroupMeToken'
