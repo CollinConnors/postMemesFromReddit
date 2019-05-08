@@ -1,0 +1,4 @@
+12345678 <- Group ID
+87654321
+Jon Snow <- Direct Message Users Name
+Ned Stark
