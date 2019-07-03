@@ -29,7 +29,7 @@ def download(limit=10, subreddit='mathmemes', credFile='credientials.txt'):
         if('.jpg' in submission.url or '.png' in submission.url):
             topMemes.append(submission.url)
             i+=1
-            if(i>=10):
+            if(i>=limit):
                 i=0
                 break
 

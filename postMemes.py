@@ -21,7 +21,7 @@ def getStringFromFile(str,fileName):
     file.close()
     return False
 
-def post(groups=True, message='#mathMemeMonday',targetFile='targets.txt',credFile='credientials.txt'):
+def post(groups=True, message='#mathMemeMonday', limit=10 ,targetFile='targets.txt',credFile='credientials.txt'):
 
     token=getStringFromFile('token',credFile)
 
@@ -42,7 +42,7 @@ def post(groups=True, message='#mathMemeMonday',targetFile='targets.txt',credFil
                 postTo.append(group)
 
     for squad in postTo:
-        while (i<10):
+        while (i<limit):
             atts=[]
             if(not groups):
                 print('Posting Meme '+str(i)+' to '+squad.other_user['name'])
@@ -51,9 +51,13 @@ def post(groups=True, message='#mathMemeMonday',targetFile='targets.txt',credFil
             with open('meme'+str(i)+'.jpg','rb') as f:
                 image=client.images.from_file(f)
             atts.append(image)
-            message=squad.post(text=message,attachments=atts)
+            mess=squad.post(text=message,attachments=atts)
             f.close()
-            os.remove('meme'+str(i)+'.jpg')
             i+=1
+        i=0
+
+    while (i<10):
+        os.remove('meme'+str(i)+'.jpg')
+        i+=1
 
     print('All Memes Posted')
